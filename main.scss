@@ -1,0 +1,60 @@
+body {
+  background: {
+    image: url("./images/bg.jpg");
+    attachment: fixed;
+    size: cover;
+    repeat: no-repeat;
+  }
+  height: 100vh;
+}
+.container {
+  max-width: 660px;
+  margin: auto;
+}
+.heroes {
+  padding: 30px 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  .hero {
+    width: 80px;
+    height: 84px;
+    margin: 4px;
+    border: 3px solid #fff;
+    border-radius: 10px;
+    box-sizing: border-box;
+    background-color: #555;
+    overflow: hidden;
+    transform: skewX(-14deg);
+    transition: 
+      transform .2s, 
+      background-color .8s;
+      
+    &:hover {
+      transform: skewX(-14deg) scale(1.3);
+      background-color: #ff9c00;
+      z-index: 1;
+    }
+    .face {
+      width: 140%;
+      height: 100%;
+      transform: translateX(-16px) skewX(14deg);
+      background: {
+        size: 90px;
+        position: center;
+        repeat: no-repeat;
+      }
+    }
+    @for $i from 1 through 32 {
+      &:nth-child(#{$i}) .face {
+        background-image: url('./images/hero#{$i}.png');
+      } 
+    }
+  }
+}
+img {
+  display: block; /*블럭만 마진오토 가능함*/
+  max-width: 300px;
+  padding-bottom: 15px;
+  margin: auto;
+}
